@@ -1,5 +1,5 @@
 name: ovsbmissing
-description: OvsbMissing - Gerenciador Inteligente de Faltas Escolares. Controle suas faltas com margem de seguranÃ§a e sugestÃµes inteligentes.
+description: OvsbMissing - Gerenciador Inteligente de Faltas Escolares.
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -37,8 +37,8 @@ dependencies:
   # UI Components
   table_calendar: ^3.0.9
   
-  # Icons
-  phosphor_flutter: ^2.0.1
+  # Icons (substituído – compatível com Flutter atual)
+  phosphoricons_flutter: ^1.0.0
   
   # PDF Export
   pdf: ^3.10.7
@@ -61,18 +61,3 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-  
-  assets:
-    - assets/images/
-  
-  fonts:
-    - family: Inter
-      fonts:
-        - asset: assets/fonts/Inter-Regular.ttf
-          weight: 400
-        - asset: assets/fonts/Inter-Medium.ttf
-          weight: 500
-        - asset: assets/fonts/Inter-SemiBold.ttf
-          weight: 600
-        - asset: assets/fonts/Inter-Bold.ttf
-          weight: 700

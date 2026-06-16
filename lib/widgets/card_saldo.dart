@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:phosphoricons_flutter/phosphoricons_flutter.dart';
 import '../utils/cores.dart';
 
 /// Card principal mostrando saldo de faltas - TEMA AUTOMÁTICO

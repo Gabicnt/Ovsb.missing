@@ -15,16 +15,9 @@ class FaltaControlApp extends StatelessWidget {
     return MaterialApp(
       title: 'OvsbMissing',
       debugShowCheckedModeBanner: false,
-      
-      // TEMA AUTOMÁTICO - detecta configuração do dispositivo
       themeMode: ThemeMode.system,
-      
-      // Tema claro
       theme: _buildLightTheme(),
-      
-      // Tema escuro
       darkTheme: _buildDarkTheme(),
-      
       home: Consumer<PeriodoProvider>(
         builder: (context, periodoProvider, child) {
           if (periodoProvider.periodo == null) {
@@ -36,14 +29,12 @@ class FaltaControlApp extends StatelessWidget {
     );
   }
 
-  /// Tema CLARO (estilo Kindle papel)
   ThemeData _buildLightTheme() {
     final textTheme = GoogleFonts.interTextTheme();
     
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.light,
-      
       colorScheme: const ColorScheme.light(
         primary: KindleColors.black,
         onPrimary: KindleColors.white,
@@ -57,9 +48,7 @@ class FaltaControlApp extends StatelessWidget {
         onError: KindleColors.white,
         outline: KindleColors.light,
       ),
-      
       scaffoldBackgroundColor: KindleColors.offWhite,
-      
       appBarTheme: AppBarTheme(
         backgroundColor: KindleColors.offWhite,
         foregroundColor: KindleColors.black,
@@ -76,8 +65,7 @@ class FaltaControlApp extends StatelessWidget {
           size: 22,
         ),
       ),
-      
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: KindleColors.white,
         elevation: 0,
         shape: RoundedRectangleBorder(
@@ -86,7 +74,6 @@ class FaltaControlApp extends StatelessWidget {
         ),
         margin: EdgeInsets.zero,
       ),
-      
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: KindleColors.black,
@@ -102,7 +89,6 @@ class FaltaControlApp extends StatelessWidget {
           ),
         ),
       ),
-      
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
           foregroundColor: KindleColors.black,
@@ -111,22 +97,8 @@ class FaltaControlApp extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
           ),
-          textStyle: textTheme.labelLarge?.copyWith(
-            fontWeight: FontWeight.w500,
-            fontSize: 16,
-          ),
         ),
       ),
-      
-      textButtonTheme: TextButtonThemeData(
-        style: TextButton.styleFrom(
-          foregroundColor: KindleColors.dark,
-          textStyle: textTheme.labelLarge?.copyWith(
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-      ),
-      
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: KindleColors.white,
@@ -143,39 +115,24 @@ class FaltaControlApp extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
           borderSide: const BorderSide(color: KindleColors.black, width: 1.5),
         ),
-        labelStyle: textTheme.bodyMedium?.copyWith(color: KindleColors.medium),
-        hintStyle: textTheme.bodyMedium?.copyWith(color: KindleColors.medium),
       ),
-      
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: KindleColors.white,
         selectedItemColor: KindleColors.black,
         unselectedItemColor: KindleColors.medium,
         type: BottomNavigationBarType.fixed,
         elevation: 0,
-        selectedLabelStyle: textTheme.labelSmall?.copyWith(
-          fontWeight: FontWeight.w600,
-          fontSize: 10,
-        ),
-        unselectedLabelStyle: textTheme.labelSmall?.copyWith(
-          fontWeight: FontWeight.normal,
-          fontSize: 10,
-        ),
       ),
-      
       bottomSheetTheme: const BottomSheetThemeData(
         backgroundColor: KindleColors.white,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
         ),
       ),
-      
       dividerTheme: const DividerThemeData(
         color: KindleColors.light,
         thickness: 1,
-        space: 1,
       ),
-      
       switchTheme: SwitchThemeData(
         thumbColor: MaterialStateProperty.resolveWith((states) {
           if (states.contains(MaterialState.selected)) {
@@ -189,77 +146,40 @@ class FaltaControlApp extends StatelessWidget {
           }
           return KindleColors.light;
         }),
-        trackOutlineColor: MaterialStateProperty.all(Colors.transparent),
       ),
-      
       sliderTheme: const SliderThemeData(
         activeTrackColor: KindleColors.black,
         inactiveTrackColor: KindleColors.light,
         thumbColor: KindleColors.black,
-        overlayColor: Color(0x1A000000),
       ),
-      
-      dialogTheme: DialogTheme(
+      dialogTheme: DialogThemeData(
         backgroundColor: KindleColors.white,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
-      
-      snackBarTheme: const SnackBarThemeData(
-        backgroundColor: KindleColors.black,
-        contentTextStyle: TextStyle(color: KindleColors.white),
-      ),
-      
-      progressIndicatorTheme: const ProgressIndicatorThemeData(
-        color: KindleColors.black,
-        linearTrackColor: KindleColors.light,
-      ),
-      
-      textTheme: textTheme.copyWith(
-        displayLarge: textTheme.displayLarge?.copyWith(color: KindleColors.black),
-        displayMedium: textTheme.displayMedium?.copyWith(color: KindleColors.black),
-        displaySmall: textTheme.displaySmall?.copyWith(color: KindleColors.black),
-        headlineLarge: textTheme.headlineLarge?.copyWith(color: KindleColors.black),
-        headlineMedium: textTheme.headlineMedium?.copyWith(color: KindleColors.black),
-        headlineSmall: textTheme.headlineSmall?.copyWith(color: KindleColors.black),
-        titleLarge: textTheme.titleLarge?.copyWith(color: KindleColors.black),
-        titleMedium: textTheme.titleMedium?.copyWith(color: KindleColors.black),
-        titleSmall: textTheme.titleSmall?.copyWith(color: KindleColors.dark),
-        bodyLarge: textTheme.bodyLarge?.copyWith(color: KindleColors.dark),
-        bodyMedium: textTheme.bodyMedium?.copyWith(color: KindleColors.dark),
-        bodySmall: textTheme.bodySmall?.copyWith(color: KindleColors.medium),
-        labelLarge: textTheme.labelLarge?.copyWith(color: KindleColors.black),
-        labelMedium: textTheme.labelMedium?.copyWith(color: KindleColors.dark),
-        labelSmall: textTheme.labelSmall?.copyWith(color: KindleColors.medium),
-      ),
+      textTheme: textTheme,
     );
   }
 
-  /// Tema ESCURO (estilo Kindle noturno)
   ThemeData _buildDarkTheme() {
     final textTheme = GoogleFonts.interTextTheme();
     
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.dark,
-      
       colorScheme: const ColorScheme.dark(
         primary: KindleColorsDark.black,
-        onPrimary: KindleColorsDark.offWhite,
+        onPrimary: KindleColorsDark.white,
         secondary: KindleColorsDark.dark,
-        onSecondary: KindleColorsDark.offWhite,
+        onSecondary: KindleColorsDark.white,
         surface: KindleColorsDark.white,
         onSurface: KindleColorsDark.black,
         background: KindleColorsDark.offWhite,
         onBackground: KindleColorsDark.black,
-        error: Color(0xFFFF6B6B),
-        onError: KindleColorsDark.offWhite,
+        error: KindleColorsDark.black,
+        onError: KindleColorsDark.white,
         outline: KindleColorsDark.light,
       ),
-      
       scaffoldBackgroundColor: KindleColorsDark.offWhite,
-      
       appBarTheme: AppBarTheme(
         backgroundColor: KindleColorsDark.offWhite,
         foregroundColor: KindleColorsDark.black,
@@ -276,8 +196,7 @@ class FaltaControlApp extends StatelessWidget {
           size: 22,
         ),
       ),
-      
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: KindleColorsDark.white,
         elevation: 0,
         shape: RoundedRectangleBorder(
@@ -286,11 +205,10 @@ class FaltaControlApp extends StatelessWidget {
         ),
         margin: EdgeInsets.zero,
       ),
-      
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: KindleColors.white,
-          foregroundColor: KindleColors.black,
+          backgroundColor: KindleColorsDark.black,
+          foregroundColor: KindleColorsDark.white,
           elevation: 0,
           minimumSize: const Size(double.infinity, 48),
           shape: RoundedRectangleBorder(
@@ -302,31 +220,16 @@ class FaltaControlApp extends StatelessWidget {
           ),
         ),
       ),
-      
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
           foregroundColor: KindleColorsDark.black,
-          side: const BorderSide(color: KindleColorsDark.dark, width: 1),
+          side: const BorderSide(color: KindleColorsDark.black, width: 1),
           minimumSize: const Size(double.infinity, 48),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
           ),
-          textStyle: textTheme.labelLarge?.copyWith(
-            fontWeight: FontWeight.w500,
-            fontSize: 16,
-          ),
         ),
       ),
-      
-      textButtonTheme: TextButtonThemeData(
-        style: TextButton.styleFrom(
-          foregroundColor: KindleColorsDark.dark,
-          textStyle: textTheme.labelLarge?.copyWith(
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-      ),
-      
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: KindleColorsDark.white,
@@ -341,98 +244,50 @@ class FaltaControlApp extends StatelessWidget {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: const BorderSide(color: KindleColorsDark.dark, width: 1.5),
+          borderSide: const BorderSide(color: KindleColorsDark.black, width: 1.5),
         ),
-        labelStyle: textTheme.bodyMedium?.copyWith(color: KindleColorsDark.medium),
-        hintStyle: textTheme.bodyMedium?.copyWith(color: KindleColorsDark.medium),
       ),
-      
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: KindleColorsDark.white,
         selectedItemColor: KindleColorsDark.black,
         unselectedItemColor: KindleColorsDark.medium,
         type: BottomNavigationBarType.fixed,
         elevation: 0,
-        selectedLabelStyle: textTheme.labelSmall?.copyWith(
-          fontWeight: FontWeight.w600,
-          fontSize: 10,
-        ),
-        unselectedLabelStyle: textTheme.labelSmall?.copyWith(
-          fontWeight: FontWeight.normal,
-          fontSize: 10,
-        ),
       ),
-      
       bottomSheetTheme: const BottomSheetThemeData(
         backgroundColor: KindleColorsDark.white,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
         ),
       ),
-      
       dividerTheme: const DividerThemeData(
         color: KindleColorsDark.light,
         thickness: 1,
-        space: 1,
       ),
-      
       switchTheme: SwitchThemeData(
         thumbColor: MaterialStateProperty.resolveWith((states) {
           if (states.contains(MaterialState.selected)) {
-            return KindleColors.black;
+            return KindleColorsDark.white;
           }
           return KindleColorsDark.medium;
         }),
         trackColor: MaterialStateProperty.resolveWith((states) {
           if (states.contains(MaterialState.selected)) {
-            return KindleColors.white;
+            return KindleColorsDark.black;
           }
           return KindleColorsDark.light;
         }),
-        trackOutlineColor: MaterialStateProperty.all(Colors.transparent),
       ),
-      
       sliderTheme: const SliderThemeData(
-        activeTrackColor: KindleColors.white,
+        activeTrackColor: KindleColorsDark.black,
         inactiveTrackColor: KindleColorsDark.light,
-        thumbColor: KindleColors.white,
-        overlayColor: Color(0x1AFFFFFF),
+        thumbColor: KindleColorsDark.black,
       ),
-      
-      dialogTheme: DialogTheme(
+      dialogTheme: DialogThemeData(
         backgroundColor: KindleColorsDark.white,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
-      
-      snackBarTheme: const SnackBarThemeData(
-        backgroundColor: KindleColors.white,
-        contentTextStyle: TextStyle(color: KindleColors.black),
-      ),
-      
-      progressIndicatorTheme: const ProgressIndicatorThemeData(
-        color: KindleColors.white,
-        linearTrackColor: KindleColorsDark.light,
-      ),
-      
-      textTheme: textTheme.copyWith(
-        displayLarge: textTheme.displayLarge?.copyWith(color: KindleColorsDark.black),
-        displayMedium: textTheme.displayMedium?.copyWith(color: KindleColorsDark.black),
-        displaySmall: textTheme.displaySmall?.copyWith(color: KindleColorsDark.black),
-        headlineLarge: textTheme.headlineLarge?.copyWith(color: KindleColorsDark.black),
-        headlineMedium: textTheme.headlineMedium?.copyWith(color: KindleColorsDark.black),
-        headlineSmall: textTheme.headlineSmall?.copyWith(color: KindleColorsDark.black),
-        titleLarge: textTheme.titleLarge?.copyWith(color: KindleColorsDark.black),
-        titleMedium: textTheme.titleMedium?.copyWith(color: KindleColorsDark.black),
-        titleSmall: textTheme.titleSmall?.copyWith(color: KindleColorsDark.dark),
-        bodyLarge: textTheme.bodyLarge?.copyWith(color: KindleColorsDark.dark),
-        bodyMedium: textTheme.bodyMedium?.copyWith(color: KindleColorsDark.dark),
-        bodySmall: textTheme.bodySmall?.copyWith(color: KindleColorsDark.medium),
-        labelLarge: textTheme.labelLarge?.copyWith(color: KindleColorsDark.black),
-        labelMedium: textTheme.labelMedium?.copyWith(color: KindleColorsDark.dark),
-        labelSmall: textTheme.labelSmall?.copyWith(color: KindleColorsDark.medium),
-      ),
+      textTheme: textTheme,
     );
   }
 }

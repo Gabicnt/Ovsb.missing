@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:phosphoricons_flutter/phosphoricons_flutter.dart';
 import '../providers/periodo_provider.dart';
 import '../providers/faltas_provider.dart';
 import '../providers/eventos_provider.dart';
